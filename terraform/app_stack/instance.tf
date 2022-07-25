@@ -48,4 +48,6 @@ resource "aws_instance" "app_instance" {
   tags = {
     Name = "app-${random_id.deployment_id.hex}"
   }
+   monitoring = true
+   ebs_optimized = true
 }
