@@ -11,6 +11,10 @@ resource "aws_alb" "alb" {
   tags = {
     Name    = "app-alb-${random_id.deployment_id.hex}"
   }
+   drop_invalid_header_fields = true
+   access_logs {
+     enabled = true
+   }
 }
 
 resource "aws_alb_target_group" "alb-tg" {
